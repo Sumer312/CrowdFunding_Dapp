@@ -23,10 +23,10 @@ const Home = () => {
   return (
     <div className='grid grid-cols-1 gap-8'>
       <div className='place-self-center'>
-        <h1 className='ml-12 font-bold text-[24px]'>CrowdFunding</h1>
+        <h1 className='font-mono font-bold text-[24px]'>CrowdFunding DApp</h1>
         <img
           src='https://img.icons8.com/?size=512&id=64633&format=png'
-          alt='null'
+          alt='logo'
           width='256'
           height='128'
         />
