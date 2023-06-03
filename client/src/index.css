@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css4?family=Epilogue:wght@400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -18,7 +17,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 *::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
   background-color: #000000;
 }
 

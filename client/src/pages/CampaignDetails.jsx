@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import useThemeStore from "../components/themeStore/themeStore";
 /* import { ethers } from "ethers"; */
 
 import { useStateContext } from "../context";
@@ -17,6 +18,10 @@ const CampaignDetails = () => {
   const [donators, setDonators] = useState([]);
 
   const remainingDays = daysLeft(state.deadline);
+  const theme = useThemeStore((state) => state.theme);
+  const [stateTheme, setStateTheme] = useState(theme);
+
+  useEffect(() => setStateTheme(theme), [theme]);
 
   const fetchDonators = async () => {
     const data = await getDonations(state.pId);
@@ -46,11 +51,20 @@ const CampaignDetails = () => {
           <img
             src={state.image}
             alt='campaign'
-            className='w-full h-[410px] object-cover rounded-xl'
+            className='w-full h-[540px] object-cover rounded-xl'
           />
-          <div className='relative w-full h-[5px] bg-[#3a3a43] mt-2'>
+          <div
+            className={
+              "relative w-full h-[12px] rounded-lg" +
+              (stateTheme === 1 ? " bg-zinc-100" : " bg-zinc-900") +
+              " mt-2"
+            }
+          >
             <div
-              className='absolute h-full bg-purple-500'
+              className={
+                "absolute h-full rounded-lg" +
+                (stateTheme === 1 ? " bg-purple-700" : " bg-amber-400")
+              }
               style={{
                 width: `${calculateBarPercentage(
                   state.target,
@@ -91,9 +105,6 @@ const CampaignDetails = () => {
                 <h4 className='font-epilogue font-semibold text-[14px]  break-all'>
                   {state.owner}
                 </h4>
-                <p className='mt-[4px] font-epilogue font-normal text-[12px] text-[#808191]'>
-                  10 Campaigns
-                </p>
               </div>
             </div>
           </div>
@@ -168,12 +179,16 @@ const CampaignDetails = () => {
                 </p>
               </div>
 
-              <CustomButton
-                btnType='button'
-                title='Fund Campaign'
-                styles='w-full outline-double outline-2 outline-purple-500 hover:bg-amber-500'
-                handleClick={handleDonate}
-              />
+              {remainingDays < 0 ? (
+                <h1 className="ml-4 mt-4 font-epilogue font-light text-zinc-500 text-[20px]"> Deadline passed </h1>
+              ) : (
+                <CustomButton
+                  btnType='button'
+                  title='Fund Campaign'
+                  styles='w-full outline-double outline-2 outline-purple-500 hover:bg-amber-500'
+                  handleClick={handleDonate}
+                />
+              )}
             </div>
           </div>
         </div>
