@@ -12,7 +12,6 @@ import {
 } from "react-icons/si";
 import { GiFox } from "react-icons/gi";
 import { FaHardHat } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
 const Footer = () => {
   const theme = useThemeStore((state) => state.theme);
@@ -25,7 +24,7 @@ const Footer = () => {
       aria-label='Site Footer'
       className={"mt-12 " + (stateTheme === 1 ? "bg-zinc-900" : "bg-zinc-100")}
     >
-      <div className='max-w-screen-xl px-4 py-8 mx-auto space-y-8 sm:px-6 lg:space-y-16 lg:px-8'>
+      <div className='max-w-screen-xl px-4 py-12 space-y-8 sm:px-6 lg:space-y-16 lg:px-8'>
         <div className='grid grid-cols-1 gap-8 lg:grid-cols-3'>
           <div className='grid grid-cols-1'>
             <img
@@ -41,8 +40,8 @@ const Footer = () => {
               />
             </a>
           </div>
-          <div className='grid grid-cols-1 gap-16 xl:gap-48 xl:ml-56 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4'>
-            <div>
+          <div className='grid grid-cols-1 gap-16 xl:gap-x-96 xl:ml-96 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4'>
+            <div className="xl:ml-56">
               <p className='font-extrabold'>Frontend</p>
               <nav aria-label='Footer Navigation - Services' className='mt-6'>
                 <ul className='space-y-4 text-sm'>
@@ -70,7 +69,7 @@ const Footer = () => {
                 </ul>
               </nav>
             </div>
-            <div>
+            <div className="xl:ml-28">
               <p className='font-extrabold'>Web3</p>
               <nav aria-label='Footer Navigation - Company' className='mt-6'>
                 <ul className='space-y-4 text-sm'>

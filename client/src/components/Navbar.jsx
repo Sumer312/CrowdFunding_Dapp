@@ -41,7 +41,7 @@ const Navbar = () => {
     <div className='flex md:flex-row flex-col-reverse justify-between mb-[35px] gap-6'>
       <div
         className={
-          "lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px]" +
+          "lg:flex-1 flex flex-row max-w-[458px] ml-16 -mt-11 xl:mt-0 xl:ml-0 py-2 pl-4 pr-2 h-[52px]" +
           (stateTheme === 1 ? " bg-slate-100" : " bg-slate-900") +
           " rounded-[100px]"
         }
@@ -101,15 +101,15 @@ const Navbar = () => {
       {/* Small screen navigation */}
       <div className='sm:hidden flex justify-between items-center relative'>
         <button
-          className='cursor-pointer'
+          className='-mb-4 mt-2 cursor-pointer'
           onClick={() => {
             setToggleDrawer(!toggleDrawer);
           }}
         >
           {toggleDrawer ? (
-            <RiCloseFill size='1.5rem' color='red' />
+            <RiCloseFill size='2rem' color='red' />
           ) : (
-            <HiMenu size='1.5rem' />
+            <HiMenu size='2rem' />
           )}
         </button>
         <div

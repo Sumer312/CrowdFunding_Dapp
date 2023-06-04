@@ -35,6 +35,7 @@ const Home = () => {
         title='All Campaigns'
         isLoading={isLoading}
         campaigns={campaigns}
+        message={'No campaigns here'}
       />
     </div>
   );

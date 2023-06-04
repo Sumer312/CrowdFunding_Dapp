@@ -25,6 +25,7 @@ const Profile = () => {
       title="My Campaigns"
       isLoading={isLoading}
       campaigns={campaigns}
+      message={'You have not created any campaigns'}
     />
   )
 }

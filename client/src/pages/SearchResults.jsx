@@ -27,6 +27,7 @@ const SearchResults = () => {
         title='Results'
         isLoading={isLoading}
         campaigns={campaigns}
+        message={'No campaigns with this title found'}
       />
     </>
   );

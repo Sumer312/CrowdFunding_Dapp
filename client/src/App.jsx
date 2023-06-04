@@ -9,6 +9,7 @@ import {
   Home,
   Profile,
   SearchResults,
+  ErrorPage,
 } from "./pages";
 import Footer from "./components/Footer";
 
@@ -43,6 +44,7 @@ const App = () => {
                 element={<CampaignDetails />}
               />
               <Route path='/search/:title' element={<SearchResults />} />
+              <Route path='*' element={<ErrorPage />} />
             </Routes>
           </div>
         </div>
