@@ -3,9 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { RiSearch2Line, RiCloseFill } from "react-icons/ri";
 import { HiMenu } from "react-icons/hi";
 import { FaSun, FaMoon } from "react-icons/fa";
-import { HiSpeakerphone } from "react-icons/hi";
+import { TbSpeakerphone } from "react-icons/tb";
 import { RiDashboardFill } from "react-icons/ri";
-import { CgProfile } from "react-icons/cg";
+import { BsFillPersonFill } from "react-icons/bs";
 
 import { useStateContext } from "../context";
 import { CustomButton } from "./";
@@ -41,7 +41,7 @@ const Navbar = () => {
     <div className='flex md:flex-row flex-col-reverse justify-between mb-[35px] gap-6'>
       <div
         className={
-          "lg:flex-1 flex flex-row max-w-[458px] ml-16 -mt-11 xl:mt-0 xl:ml-0 py-2 pl-4 pr-2 h-[52px]" +
+          "flex flex-1 flex-row max-w-[540px] ml-16 -mt-11 lg:mt-0 md:mt-0 sm:mt-0 xl:mt-0 xl:ml-0 py-2 pl-4 pr-2 h-[52px] outline-double outline-3  outline-amber-500" +
           (stateTheme === 1 ? " bg-slate-100" : " bg-slate-900") +
           " rounded-[100px]"
         }
@@ -52,7 +52,7 @@ const Navbar = () => {
           className={
             "flex w-full font-epilogue font-normal text-[14px] placeholder:" +
             (stateTheme === 1
-              ? "text-gray-900 text-gray-900"
+              ? "text-gray-800 text-gray-900"
               : "text-grey-100 text-rose-50") +
             " bg-transparent outline-none"
           }
@@ -62,13 +62,16 @@ const Navbar = () => {
         />
 
         <button
-          className='w-[72px] h-full rounded-[20px] bg-purple-500 flex justify-center items-center cursor-pointer hover:bg-purple-600'
+          className='w-[56px] ml-4 h-full cursor-pointer'
           onClick={() => {
             console.log("click");
             searchQ.current !== "" && navigate(`/search/${searchQ.current}`);
           }}
         >
-          <RiSearch2Line size='1.5rem' />
+          <RiSearch2Line
+            size='2rem'
+            className='text-amber-500 hover:text-amber-700'
+          />
         </button>
       </div>
 
@@ -136,14 +139,15 @@ const Navbar = () => {
               className='flex gap-8 focus:text-amber-500'
               onClick={() => navigate("/create-campaign")}
             >
-              <HiSpeakerphone size='1.5rem' /> Create Campaign
+              <TbSpeakerphone size='1.5rem' />
+              Create Campaign
             </button>
             <button
               type='submit'
               className='flex gap-8 focus:text-amber-500'
               onClick={() => navigate("/profile")}
             >
-              <CgProfile size='1.5rem' />
+              <BsFillPersonFill size='1.5rem' />
               Profile
             </button>
             <a onClick={changeTheme} className='cursor-pointer'>

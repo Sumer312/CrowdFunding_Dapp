@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import useThemeStore from "./themeStore/themeStore.jsx";
 import { TiArrowBack } from "react-icons/ti";
 import { FaSun, FaMoon } from "react-icons/fa";
-import { HiSpeakerphone } from "react-icons/hi";
+import { TbSpeakerphone } from "react-icons/tb";
 import { RiDashboardFill } from "react-icons/ri";
-import { CgProfile } from "react-icons/cg";
+import { BsFillPersonFill } from "react-icons/bs";
 
 const Sidebar = () => {
   const navigate = useNavigate();
@@ -18,21 +18,20 @@ const Sidebar = () => {
   }, [theme]);
 
   return (
-    <div className='flex justify-between items-center flex-col sticky top-5 h-[93vh]'>
+    <div className='flex justify-between items-center flex-col sticky mt-6 top-5 h-[93vh]'>
       <button onClick={() => navigate(-1)}>
-        <TiArrowBack size='2rem' className='text-purple-500' />
+        <TiArrowBack size='2rem' className='text-amber-500 -mt-4' />
       </button>
-
       <div
         className={
-          "flex-1 flex flex-col justify-between items-center outline outline-3" +
+          "flex-1 flex flex-col justify-between items-center outline outline-2" +
           (stateTheme === 1
             ? " bg-zinc-800 outline-rose-50"
             : " bg-zinc-100 outline-slate-800") +
           " rounded-[20px] w-[76px] py-4 mt-12"
         }
       >
-        <div className='flex flex-col justify-center items-center gap-6'>
+        <div className='flex flex-col justify-center items-center gap-8'>
           <button
             type='submit'
             className='focus:text-amber-500'
@@ -45,14 +44,14 @@ const Sidebar = () => {
             className='focus:text-amber-500'
             onClick={() => navigate("/create-campaign")}
           >
-            <HiSpeakerphone size='1.5rem' />
+            <TbSpeakerphone size='1.5rem' />
           </button>
           <button
             type='submit'
             className='focus:text-amber-500'
             onClick={() => navigate("/profile")}
           >
-            <CgProfile size='1.5rem' />
+            <BsFillPersonFill size='1.5rem' />
           </button>
         </div>
         <a onClick={changeTheme} className='cursor-pointer'>
